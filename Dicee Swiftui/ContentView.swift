@@ -9,16 +9,29 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack{
+            Image("background")
+                .resizable().edgesIgnoringSafeArea(.all)
+            VStack{
+                Image("diceeLogo")
+                HStack{
+                    DiceView(diceValue: 1)
+                    DiceView(diceValue: 3)
+                }
+            }
         }
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
+}
+
+struct DiceView: View {
+   var diceValue: Int
+    var body: some View {
+        Image("dice\(diceValue)")
+            .resizable()
+            .aspectRatio(1, contentMode: .fit)
+    }
 }
