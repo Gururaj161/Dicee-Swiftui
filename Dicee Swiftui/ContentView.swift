@@ -14,9 +14,25 @@ struct ContentView: View {
                 .resizable().edgesIgnoringSafeArea(.all)
             VStack{
                 Image("diceeLogo")
+                Spacer()
                 HStack{
                     DiceView(diceValue: 1)
+                    Spacer()
                     DiceView(diceValue: 3)
+                }
+                .padding(.horizontal)
+                Spacer()
+                Button(action: {
+                }) {
+                
+                    Text("Roll")
+                        .fontWeight(.heavy).font(.system(size: 24))
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(width: 100, height: 50)
+                        .background(Color.red)
+                        .cornerRadius(10)
+                        
                 }
             }
         }
@@ -33,5 +49,7 @@ struct DiceView: View {
         Image("dice\(diceValue)")
             .resizable()
             .aspectRatio(1, contentMode: .fit)
+            .frame(width: 140, height: 140)
+            .padding()
     }
 }
